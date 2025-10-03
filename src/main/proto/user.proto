@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package com.nla.grpc;
+
+option java_multiple_files=true;
+
+service UserService{
+  rpc CreateUser(UserRequest) returns (UserResponse){}
+  rpc GetUser(GetRequest) returns (UserResponse){}
+  rpc UpdateUser(UserUpdate) returns (UserResponse){}
+}
+
+
+message UserRequest{
+ string name=1;
+ string email=2;
+    }
+    message UserUpdate{
+  int64 id=1;
+  string name=2;
+  string email=3;
+    }
+
+
+    message UserResponse{
+     int64 id=1;
+     string name=2;
+     string email=3;
+    }
+
+    message GetRequest{
+    int64 id=1;
+    }
